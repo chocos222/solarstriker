@@ -27,3 +27,5 @@
 # swap files for vim and gedit
 .*.swp
 *~
+rgbds-0.4.1
+v0.4.1.tar.gz
