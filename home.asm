@@ -10,6 +10,9 @@ _Start:
 	di
 	call WriteOAMDMACodeToHRAM
 	call InitSound
+	bankswitch BANK(LoadGBCPalettes)
+	call LoadGBCPalettes
+	bankswitch $01
 
 	ld bc, $10
 	ld hl, wcff0
@@ -7378,4 +7381,4 @@ unkData_000_3ec7:
 	db $fc, $a2, $b2, $b0, $b2, $ff, $ea, $eb, $ec, $ed, $ee, $ef, $00
 
 unkData_000_3ef4:
-	dr $3ef4, $4000
+	ds $4000 - @
