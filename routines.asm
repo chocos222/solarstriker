@@ -29,22 +29,22 @@ LoadGBCObjectPalettes::
 
 ; 8 palettes of 4 colors (2 bytes per color, RGB555)
 BG_Palettes::
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
 
 ; 8 palettes of 4 colors (2 bytes per color, RGB555)
 OBJ_Palettes::
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
-    dw $0000, $294A, $5294, $7FFF
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
+    dw $7FFF, $5294, $294A, $0000
