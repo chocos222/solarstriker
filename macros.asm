@@ -4,5 +4,5 @@ INCLUDE "macros/data.asm"
 
 bankswitch: MACRO
 	ld a, (\1)
-	ld [$2100], a
+	ld [$2000], a
 ENDM

@@ -5,7 +5,11 @@ SECTION "Palette Load Routine", ROMX
 ; we must NOT bankswitch here, because replacing the ROMX bank we are currently running from
 ; will crash the game!
 ; The palettes are also in ROMX. So we must put LoadGBCPalettes and BG_Palettes in the SAME bank!
+
 LoadGBCPalettes::
+    ; Make sure we don't interfere with VBlank interrupt by doing a bankswitch here!
+    ; Game interrupts are running!
+    di
     ; Setup Background Palette Index (auto increment)
     ld a, $80
     ldh [rBCPS], a
@@ -19,7 +23,7 @@ LoadGBCPalettes::
     ldh [c], a
     dec b
     jr nz, .loop
-
+    ei
     ret
 
 ; 8 palettes of 4 colors (2 bytes per color, RGB555)
@@ -42,6 +46,7 @@ BG_Palettes::
     dw $0000, $7FFF, $7FFF, $7FFF
 
 LoadGBCObjectPalettes::
+    di
     ; Setup Object Palette Index (auto increment)
     ld a, $80
     ldh [rOCPS], a
@@ -55,7 +60,7 @@ LoadGBCObjectPalettes::
     ldh [c], a
     dec b
     jr nz, .loop
-
+    ei
     ret
 
 ; 8 palettes of 4 colors (2 bytes per color, RGB555)
@@ -75,3 +80,4 @@ OBJ_Palettes::
     ; Palette 6
     dw $0000, $7FFF, $7FFF, $7FFF
     ; Palette 7
+    dw $0000, $7FFF, $7FFF, $7FFF
