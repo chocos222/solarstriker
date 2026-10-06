@@ -12,7 +12,6 @@ _Start:
 	call InitSound
 	bankswitch BANK(LoadGBCPalettes)
 	call LoadGBCPalettes
-	call LoadGBCObjectPalettes
 	bankswitch $01
 
 	ld bc, $10
@@ -45,6 +44,7 @@ Jump_000_016d:
 	ld bc, $90
 	call CopyBytes
 
+	bankswitch $01
 	call ClearBGMap0
 
 	ld bc, $ff0
@@ -915,6 +915,7 @@ Jump_000_0730:
 	ld bc, $90
 	call CopyBytes
 
+	bankswitch $01
 	call ClearBGMap0
 
 	ld hl, wc000
@@ -2213,6 +2214,7 @@ Call_000_0e16:
 	ld bc, $400
 	call CopyBytes
 
+	bankswitch $01
 	ret
 
 unkData_000_0e5d:
