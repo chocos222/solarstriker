@@ -41,7 +41,7 @@ BG_Palettes::
     ; Palette 7
     dw $0000, $7FFF, $7FFF, $7FFF
 
-LoadGBCSpritePalettes::
+LoadGBCObjectPalettes::
     ; Setup Object Palette Index (auto increment)
     ld a, $80
     ldh [rOCPS], a
@@ -75,4 +75,3 @@ OBJ_Palettes::
     ; Palette 6
     dw $0000, $7FFF, $7FFF, $7FFF
     ; Palette 7
-    dw $0000, $7FFF, $7FFF, $7FFF

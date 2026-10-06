@@ -12,7 +12,8 @@ _Start:
 	call InitSound
 	bankswitch BANK(LoadGBCPalettes)
 	call LoadGBCPalettes
-	call LoadGBCSpritePalettes
+	call LoadGBCObjectPalettes
+	bankswitch $01
 	bankswitch $01
 
 	ld bc, $10
