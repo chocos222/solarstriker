@@ -16,7 +16,7 @@ SOURCES := \
 
 OBJS := $(SOURCES:%.asm=%.o)
 
-ROM := solarstriker.gb
+ROM := solarstriker.gbc
 MAP := $(ROM:%.gb=%.map)
 SYM := $(ROM:%.gb=%.sym)
 
