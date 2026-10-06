@@ -7,22 +7,24 @@ LoadGBCPalettes::
     ld hl, BG_Palettes
     ld c, LOW(rBCPD)
     ld b, 64
-.loop_bg:
+.loop:
     ld a, [hli]
     ldh [c], a
     dec b
-    jr nz, .loop_bg
+    jr nz, .loop
+    ret
 
+LoadGBCObjectPalettes::
     ld a, $80
     ldh [rOCPS], a
     ld hl, OBJ_Palettes
     ld c, LOW(rOCPD)
     ld b, 64
-.loop_obj:
+.loop:
     ld a, [hli]
     ldh [c], a
     dec b
-    jr nz, .loop_obj
+    jr nz, .loop
     ret
 
 ; 8 palettes of 4 colors (2 bytes per color, RGB555)

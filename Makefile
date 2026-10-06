@@ -58,4 +58,4 @@ endif
 
 $(ROM): $(OBJS)
 	$(LINK) -n $(SYM) -m $(MAP) -d -p 0xFF -o $@ $(OBJS)
-	$(FIX) -v -t $(ROM_TITLE) -l 0x01 -C -m 0x19 -p 255 $@
+	$(FIX) -v -t $(ROM_TITLE) -l 0x01 -C -m 0x19 -r 0x00 -p 255 $@
