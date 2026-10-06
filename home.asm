@@ -10,7 +10,6 @@ _Start:
 	di
 	call WriteOAMDMACodeToHRAM
 	call InitSound
-	; Copy the palette routine to WRAM so we can bankswitch from ROM0 securely
 	ld hl, LoadGBCPalettesWRAMTrampoline
 	ld de, wcfa5
 	ld bc, LoadGBCPalettesWRAMTrampolineEnd - LoadGBCPalettesWRAMTrampoline
@@ -31,28 +30,25 @@ Jump_000_016d:
 	ld hl, unkImage_002_4000
 	ld de, vTiles0
 	ld bc, $1000
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
 	ld hl, SolarstrikerLogoGraphics
 	ld de, vTiles2
 	ld bc, $630
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
 	bankswitch BANK(unkData_003_58b0)
 	ld hl, unkData_003_58b0
 	ld de, wd000
 	ld bc, $80
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
 	ld hl, unkData_003_5930
 	ld de, wd200
 	ld bc, $90
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
+	bankswitch $01
 	call ClearBGMap0
 
 	ld bc, $ff0
@@ -715,7 +711,6 @@ Jump_000_05d8:
 	ld hl, unkImage_002_7950
 	ld de, vTiles0
 	ld bc, $800
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
 .not_final_cutscene:
@@ -911,22 +906,20 @@ Jump_000_0730:
 	ld hl, unkData_002_6230
 	ld de, vTiles2
 	ld bc, $360
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
 	bankswitch BANK(unkData_003_59c0)
 	ld hl, unkData_003_59c0
 	ld de, wd000
 	ld bc, $200
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
 	ld hl, unkData_003_5a20
 	ld de, wd200
 	ld bc, $90
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
+	bankswitch $01
 	call ClearBGMap0
 
 	ld hl, wc000
@@ -2200,7 +2193,6 @@ Call_000_0e16:
 	ld l, a
 	ld de, wd000
 	ld bc, $200
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
 	pop hl
@@ -2211,7 +2203,6 @@ Call_000_0e16:
 	ld l, a
 	ld de, wd200
 	ld bc, $550
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
 	ld a, [wCurrentStage]
@@ -2225,9 +2216,9 @@ Call_000_0e16:
 	ld l, a
 	ld de, wd800
 	ld bc, $400
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 
+	bankswitch $01
 	ret
 
 unkData_000_0e5d:
@@ -3063,7 +3054,6 @@ Jump_000_14dc:
 
 	ld de, wca72
 	ld bc, $0005
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 	ld hl, wca75
 	ld a, [hli]
@@ -3073,7 +3063,6 @@ Jump_000_14dc:
 	ld de, wca77
 	ld hl, wca73
 	ld bc, 4
-	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 	ld a, [wca72]
 	ld c, a
