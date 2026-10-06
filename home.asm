@@ -17,6 +17,7 @@ _Start:
 	bankswitch BANK(LoadGBCPalettesWRAMTrampoline)
 	call CopyBytes
 	call wcfa5
+	bankswitch $01
 
 	ld bc, $10
 	ld hl, wcff0
